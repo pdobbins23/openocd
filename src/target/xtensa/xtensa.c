@@ -1736,7 +1736,7 @@ int xtensa_do_step(struct target *target, int current, target_addr_t address, in
 	int res;
 	const uint32_t icount_val = -2;	/* ICOUNT value to load for 1 step */
 	xtensa_reg_val_t dbreakc[XT_WATCHPOINTS_NUM_MAX];
-	xtensa_reg_val_t icountlvl, cause;
+	xtensa_reg_val_t icountlvl = 0, cause;
 	xtensa_reg_val_t oldps, oldpc, cur_pc;
 	bool ps_modified = false;
 
