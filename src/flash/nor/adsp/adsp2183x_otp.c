@@ -481,7 +481,7 @@ static int adsp2183x_probe(struct flash_bank *bank)
 	struct target *target = bank->target;
 	struct adsp2183x_otp_bank *adsp2183x_otp_info = bank->driver_priv;
 	struct flash_sector *sectors = NULL;
-	uint32_t sector_length;
+	uint32_t sector_length = 0;
 	int num_sectors;
 
 	LOG_INFO("Setting up ADSP2183X otp area...");
@@ -735,25 +735,26 @@ COMMAND_HANDLER(adsp2183x_mass_erase_handler)
  * Usage:
  * adsp2183x get_algorithm_version bank_id
 */
-COMMAND_HANDLER(adsp2183x_get_algorithm_version_handler)
-{
-	struct adsp2183x_otp_bank *adsp2183x_otp_info;
-	struct flash_bank *bank;
-	int retval;
+// FIXME: Unused
+// COMMAND_HANDLER(adsp2183x_get_algorithm_version_handler)
+// {
+// 	struct adsp2183x_otp_bank *adsp2183x_otp_info;
+// 	struct flash_bank *bank;
+// 	int retval;
 
-	if (CMD_ARGC != 1)
-		return ERROR_COMMAND_SYNTAX_ERROR;
+// 	if (CMD_ARGC != 1)
+// 		return ERROR_COMMAND_SYNTAX_ERROR;
 
-	retval = CALL_COMMAND_HANDLER(flash_command_get_bank, 0, &bank);
-	if (ERROR_OK != retval)
-		return retval;
+// 	retval = CALL_COMMAND_HANDLER(flash_command_get_bank, 0, &bank);
+// 	if (ERROR_OK != retval)
+// 		return retval;
 
-	adsp2183x_otp_info = bank->driver_priv;
+// 	adsp2183x_otp_info = bank->driver_priv;
 
-	command_print(CMD, "%lu", adsp2183x_otp_info->adsp2183x_algorithm.version);
+// 	command_print(CMD, "%lu", adsp2183x_otp_info->adsp2183x_algorithm.version);
 
-	return retval;
-}
+// 	return retval;
+// }
 
 static const struct command_registration adsp2183x_exec_command_handlers[] = {
 	{
