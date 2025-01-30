@@ -2053,7 +2053,7 @@ int xtensa_read_memory(struct target *target, target_addr_t address, uint32_t si
 	}
 
 	unsigned int alloc_bytes = ALIGN_UP(addrend_al - addrstart_al, sizeof(uint32_t));
-	albuff = calloc(alloc_bytes, 1);
+	albuff = calloc(1, alloc_bytes);
 	if (!albuff) {
 		LOG_TARGET_ERROR(target, "Out of memory allocating %" PRId64 " bytes!",
 			addrend_al - addrstart_al);

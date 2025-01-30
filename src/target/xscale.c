@@ -2878,7 +2878,7 @@ static void xscale_build_reg_cache(struct target *target)
 
 	for (i = 0; i < num_regs; i++) {
 		(*cache_p)->reg_list[i].name = xscale_reg_list[i];
-		(*cache_p)->reg_list[i].value = calloc(4, 1);
+		(*cache_p)->reg_list[i].value = calloc(1, 4);
 		(*cache_p)->reg_list[i].dirty = false;
 		(*cache_p)->reg_list[i].valid = false;
 		(*cache_p)->reg_list[i].size = 32;
