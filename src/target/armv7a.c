@@ -262,7 +262,7 @@ int armv7a_start_algorithm(struct target *target,
 	enum arm_state core_state = arm->core_state;
 	uint32_t cpsr;
 	int exit_breakpoint_size = 0;
-	int i;
+	unsigned int i;
 	int retval = ERROR_OK;
 
 	LOG_DEBUG("Running algorithm");
