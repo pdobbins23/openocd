@@ -992,7 +992,7 @@ FLASH_BANK_COMMAND_HANDLER(adsp2183x_flash_bank_command)
 		}
         // Checking if character is not EOF.
         // If it is EOF stop reading.
-    } while (tempStr[1] != EOF);
+    } while (tempStr[1] != (char)EOF);
 
     // Closing the file
     fclose(algo_file);
